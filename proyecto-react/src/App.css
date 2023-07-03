@@ -1,0 +1,29 @@
+.contenedor  {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 0%;
+  margin: 0%;
+  font-weight: bold;
+}
+
+.navbar {
+  grid-column: 1/ span 3;
+  grid-row: 1;
+  list-style: none;
+  display: flex;
+  background-color: #1fc2ea;
+  color: azure;
+}
+
+.navbar li {
+  flex: 1;
+  text-align: center;
+}
+
+.productos {
+  grid-row: 3;
+  grid-column: 2;
+  text-align: center;
+
+}
