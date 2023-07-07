@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Navbar = ( {children}) => {
   return (
 
@@ -11,3 +9,4 @@ export const Navbar = ( {children}) => {
 
   )
 }
+
