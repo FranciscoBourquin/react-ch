@@ -1,15 +1,15 @@
 import './App.css';
-import { Carrito } from './Componentes/Carrito/Carrito';
-import { ContenedorProductos } from './Componentes/ContenedorProductos/ContenedorProductos';
 import { Navbar } from './Componentes/Nabvar/Navbar';
+import { Cartwidget } from './Components/Cartwidget/Cartwidget';
+import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
     <div className="contenedor">
         <Navbar>
-            <Carrito />
+            <Cartwidget />
         </Navbar>
-        <ContenedorProductos
+        <ItemListContainer
           greeting = '¡Bienvenidos!'
 
           />
