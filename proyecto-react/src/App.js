@@ -1,7 +1,8 @@
 import './App.css';
-import { Navbar } from './Componentes/Nabvar/Navbar';
+import {Navbar} from './Components/Navbar/Navbar'
 import { Cartwidget } from './Components/Cartwidget/Cartwidget';
 import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
+
 
 function App() {
   return (
