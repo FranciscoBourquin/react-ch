@@ -1,7 +1,7 @@
-import React from 'react'
-
-export const ItemListContainer = ( {greeting}) => {
+export const ItemListContainer = ({ children }) => {
   return (
-    <div className='ItemListContainer'> {greeting}</div>
-  )
-}
+    <div className="ItemListContainer">
+      {children}
+    </div>
+  );
+};
