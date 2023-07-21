@@ -1,13 +1,15 @@
-export const Navbar = ( {children}) => {
+import { Link } from 'react-router-dom'
+import {Logo} from '../Logo/Logo'
+import {Cartwidget} from '../Cartwidget/Cartwidget'
+export const Navbar = ( ) => {
   return (
 
     <ul className="navbar">
-      <li><a href="/">Tecnología</a></li>
-      <li><a href="/">Ropa Masculina</a></li>
-      <li><a href="/">Ropa Femenina</a></li>
-      <li><a href="/">{children}</a></li>
-    </ul>
-
+        <li><Link to="/"><Logo /></Link></li>
+        <li><Link to="/Tech">Tecnología</Link></li>
+        <li><Link to="/MensClothes">Ropa Masculina</Link></li>
+        <li><Link to= '/WomensClothes'>Ropa Femenina</Link></li>
+        <li><Link to="/Cart"><Cartwidget/></Link></li>
+      </ul>
   )
 }
-

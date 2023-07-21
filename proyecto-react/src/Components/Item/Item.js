@@ -1,12 +1,10 @@
-import React from 'react'
-
-export const Item = ({ name, description, image, price }) => {
+export const Item = ({ name, image, description, price }) => {
   return (
     <div>
-      <p> {name}</p>
+      <p>{name}</p>
       <img src={image} alt={name} />
-      <p> {description} </p>
-      <p>Precio: {price}</p>
+      <p> {description}</p>
+      <p> {price}</p>
     </div>
   );
 };
