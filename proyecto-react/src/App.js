@@ -1,19 +1,13 @@
 import './App.css';
-import {Navbar} from './Components/Navbar/Navbar'
-import { Cartwidget } from './Components/Cartwidget/Cartwidget';
-import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
-
+import { Routing } from './Components/Routing/Routing';
 
 function App() {
-  return (
-    <div className="contenedor">
-        <Navbar>
-            <Cartwidget />
-        </Navbar>
-        <ItemListContainer
-          greeting = '¡Bienvenidos!'
 
-          />
+  return (
+    <div>
+        <Routing/>
+
+
     </div>
   );
 }
