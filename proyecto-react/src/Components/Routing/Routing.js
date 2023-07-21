@@ -9,7 +9,7 @@ import { mensClothes, womensClothes, tech } from '../Products/Products';
 import { Button } from '../Button/Button';
 import { Cart } from '../Cart/Cart';
 
- export const DynamicCategories = () => {
+const DynamicCategories = () => {
   const { category } = useParams();
 
   let products = [];
@@ -28,13 +28,24 @@ import { Cart } from '../Cart/Cart';
       return null;
   }
 
+  // Aquí hacemos la comparación para determinar el contenido del h2
+  let categoryHeader;
+  if (category === 'MensClothes') {
+    categoryHeader = 'Ropa Masculina';
+  } else if (category === 'WomensClothes') {
+    categoryHeader = 'Ropa Femenina';
+  } else if (category === 'Tech') {
+    categoryHeader = 'Tecnología';
+  } else {
+    // Si no coincide con ninguna categoría válida, puedes mostrar un mensaje predeterminado
+    categoryHeader = 'Categoría no encontrada';
+  }
+
   return (
     <div>
-      <h2>{category}</h2>
+      <h2>{categoryHeader}</h2>
       <ItemList>
-        {products.map((item) => {
-          console.log(item)
-          return(
+        {products.map((item) => (
           <div key={item.id}>
             <h3>{item.name}</h3>
             <img src={item.image} alt={item.name} />
@@ -42,7 +53,7 @@ import { Cart } from '../Cart/Cart';
               <Button texto="Ver detalles" />
             </Link>
           </div>
-        )})}
+        ))}
       </ItemList>
     </div>
   );
@@ -62,10 +73,7 @@ export const Routing = () => {
         {/* Ruta para los detalles del producto */}
         <Route path="/:category/:id" element={<ItemDetailContainer />} />
 
-        <Route
-        path='/Cart'
-        element = {<Cart/>}
-        />
+        <Route path="/Cart" element={<Cart />} />
 
         {/* Página Not Found */}
         <Route path="*" element={<NotFound />} />
@@ -73,22 +81,5 @@ export const Routing = () => {
     </Router>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
