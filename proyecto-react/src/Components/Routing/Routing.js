@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams, Link } from 'react-router-dom';
 import { HomepageProducts } from '../HomepageProducts/HomepageProducts';
 import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer';
@@ -28,7 +27,7 @@ const DynamicCategories = () => {
       return null;
   }
 
-  // Aquí hacemos la comparación para determinar el contenido del h2
+  // Comparación para determinar el contenido del h2
   let categoryHeader;
   if (category === 'MensClothes') {
     categoryHeader = 'Ropa Masculina';
@@ -37,7 +36,7 @@ const DynamicCategories = () => {
   } else if (category === 'Tech') {
     categoryHeader = 'Tecnología';
   } else {
-    // Si no coincide con ninguna categoría válida, puedes mostrar un mensaje predeterminado
+    // Si no coincide con ninguna categoría válida:
     categoryHeader = 'Categoría no encontrada';
   }
 
@@ -81,5 +80,3 @@ export const Routing = () => {
     </Router>
   );
 };
-
-
