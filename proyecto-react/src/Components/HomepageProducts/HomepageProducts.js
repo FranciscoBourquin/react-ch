@@ -31,24 +31,27 @@ export const HomepageProducts = () => {
             {techSlice.map((item) => (
               <div key={item.id}>
                 <Item name={item.name} image={item.image} />
-                <Link to={'/:category/:id'}>
-                <Button texto="Ver detalles" />
+                <Link to={`/Tech/${item.id}`}>
+                  <Button texto="Ver detalles" />
                 </Link>
-
               </div>
             ))}
 
             {mensClothesSlice.map((item) => (
               <div key={item.id}>
                 <Item name={item.name} image={item.image} />
-                <Button texto="Ver detalles" />
+                <Link to={`/MensClothes/${item.id}`}>
+                  <Button texto="Ver detalles" />
+                </Link>
               </div>
             ))}
 
             {womensClothesSlice.map((item) => (
               <div key={item.id}>
                 <Item name={item.name} image={item.image} />
-                <Button texto="Ver detalles" />
+                <Link to={`/WomensClothes/${item.id}`}>
+                  <Button texto="Ver detalles" />
+                </Link>
               </div>
             ))}
           </ItemList>
@@ -57,4 +60,3 @@ export const HomepageProducts = () => {
     </div>
   );
 };
-
