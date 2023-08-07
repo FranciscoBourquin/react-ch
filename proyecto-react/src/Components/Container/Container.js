@@ -1,14 +1,12 @@
-import { ItemListContainer } from '../ItemListContainer/ItemListContainer'
-import { HomepageProducts } from '../HomepageProducts/HomepageProducts'
+import { ItemListContainer } from '../ItemListContainer/ItemListContainer';
+import { HomepageProducts } from '../HomepageProducts/HomepageProducts';
 
 export const Container = () => {
   return (
     <div className='contenedor'>
-        <ItemListContainer>
-
-                <HomepageProducts/>
-
-        </ItemListContainer>
+      <ItemListContainer>
+        <HomepageProducts />
+      </ItemListContainer>
     </div>
-  )
-}
+  );
+};

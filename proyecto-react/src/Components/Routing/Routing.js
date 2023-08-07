@@ -7,6 +7,7 @@ import { ItemList } from '../ItemList/ItemList';
 import { mensClothes, womensClothes, tech } from '../Products/Products';
 import { Button } from '../Button/Button';
 import { Cart } from '../Cart/Cart';
+import { CartContext } from '../../CartContext/CartContext';
 
 const DynamicCategories = () => {
   const { category } = useParams();
@@ -60,23 +61,25 @@ const DynamicCategories = () => {
 
 export const Routing = () => {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        {/* Ruta para la página de inicio */}
-        <Route path="/" element={<HomepageProducts />} />
+    <CartContext.Provider>
+      <Router>
+        <Navbar />
+        <Routes>
+          {/* Ruta para la página de inicio */}
+          <Route path="/" element={<HomepageProducts />} />
 
-        {/* Ruta para las categorías */}
-        <Route path="/:category/" element={<DynamicCategories />} />
+          {/* Ruta para las categorías */}
+          <Route path="/:category/" element={<DynamicCategories />} />
 
-        {/* Ruta para los detalles del producto */}
-        <Route path="/:category/:id" element={<ItemDetailContainer />} />
+          {/* Ruta para los detalles del producto */}
+          <Route path="/:category/:id" element={<ItemDetailContainer />} />
 
-        <Route path="/Cart" element={<Cart />} />
+          <Route path="/Cart" element={<Cart />} />
 
-        {/* Página Not Found */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+          {/* Página Not Found */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </CartContext.Provider>
   );
 };

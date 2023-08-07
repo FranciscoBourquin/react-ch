@@ -3,8 +3,8 @@ export const Item = ({ name, image, description, price }) => {
     <div>
       <p>{name}</p>
       <img src={image} alt={name} />
-      <p> {description}</p>
-      <p> {price}</p>
+      <p>{description}</p>
+      <p>{price}</p>
     </div>
   );
 };
