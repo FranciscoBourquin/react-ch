@@ -7,7 +7,8 @@ import { ItemList } from '../ItemList/ItemList';
 import { mensClothes, womensClothes, tech } from '../Products/Products';
 import { Button } from '../Button/Button';
 import { Cart } from '../Cart/Cart';
-import { CartContext } from '../../CartContext/CartContext';
+import { CartProvider } from '../../CartContext/CartProvider';
+
 
 const DynamicCategories = () => {
   const { category } = useParams();
@@ -61,7 +62,7 @@ const DynamicCategories = () => {
 
 export const Routing = () => {
   return (
-    <CartContext.Provider>
+    <CartProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -80,6 +81,6 @@ export const Routing = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
-    </CartContext.Provider>
+    </CartProvider>
   );
 };
