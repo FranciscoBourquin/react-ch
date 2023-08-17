@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ItemListContainer } from '../ItemListContainer/ItemListContainer';
 import { ItemList } from '../ItemList/ItemList';
 import { Item } from '../Item/Item';
-import { Products } from '../Products/Products.json';
+import  Products  from '../Products/Products.json';
 import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
 
