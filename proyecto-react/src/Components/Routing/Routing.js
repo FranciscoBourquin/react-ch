@@ -4,7 +4,7 @@ import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer'
 import { NotFound } from '../NotFound/NotFound';
 import { Navbar } from '../Navbar/Navbar';
 import { ItemList } from '../ItemList/ItemList';
-import { mensClothes, womensClothes, tech } from '../Products/Products';
+import  Products  from '../Products/Products.json';
 import { Button } from '../Button/Button';
 import { Cart } from '../Cart/Cart';
 import { CartProvider } from '../../CartContext/CartProvider';
@@ -17,13 +17,13 @@ const DynamicCategories = () => {
 
   switch (category) {
     case 'Tech':
-      products = tech;
+      products = Products.tech;
       break;
     case 'MensClothes':
-      products = mensClothes;
+      products = Products.mensClothes;
       break;
     case 'WomensClothes':
-      products = womensClothes;
+      products = Products.womensClothes;
       break;
     default:
       return null;

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
-import { mensClothes, womensClothes, tech } from '../Products/Products';
+import Products from '../Products/Products.json';
 
 export const ItemDetailContainer = () => {
   const { category, id } = useParams();
@@ -10,13 +10,13 @@ export const ItemDetailContainer = () => {
   switch (category) {
 
     case 'MensClothes':
-      product = mensClothes.find((p) => p.id === parseInt(id));
+      product = Products.mensClothes.find((p) => p.id === parseInt(id));
       break;
     case 'WomensClothes':
-      product = womensClothes.find((p) => p.id === parseInt(id));
+      product = Products.womensClothes.find((p) => p.id === parseInt(id));
       break;
     case 'Tech':
-      product = tech.find((p) => p.id === parseInt(id));
+      product = Products.tech.find((p) => p.id === parseInt(id));
       break;
     default:
       product = null;
