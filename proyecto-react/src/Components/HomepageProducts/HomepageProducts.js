@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ItemListContainer } from '../ItemListContainer/ItemListContainer';
 import { ItemList } from '../ItemList/ItemList';
 import { Item } from '../Item/Item';
-import { tech, mensClothes, womensClothes } from '../Products/Products';
+import { Products } from '../Products/Products.json';
 import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
 
@@ -14,9 +14,9 @@ export const HomepageProducts = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setWomensClothesSlice(womensClothes.slice(0, 2));
-      setMensClothesSlice(mensClothes.slice(0, 2));
-      setTechSlice(tech.slice(0, 2));
+      setWomensClothesSlice(Products.womensClothes.slice(0, 2));
+      setMensClothesSlice(Products.mensClothes.slice(0, 2));
+      setTechSlice(Products.tech.slice(0, 2));
       setLoading(false);
     }, 2000);
   }, []);
