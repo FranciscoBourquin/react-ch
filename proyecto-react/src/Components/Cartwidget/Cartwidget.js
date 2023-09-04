@@ -4,12 +4,16 @@ import { CartContext } from '../../CartContext/CartContext';
 
 export const Cartwidget = () => {
   const { cart } = useContext(CartContext);
+  const itemsWithQuantityGreaterThanOne = cart.items.filter(item => item.quantity > 1);
+const totalItemsInCart = cart.items.length;
 
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+const result = itemsWithQuantityGreaterThanOne.length + totalItemsInCart;
+
+  // const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <span>
-      <BsCart4 /> {totalItems}
+      <BsCart4 /> {result}
     </span>
   );
 };

@@ -4,15 +4,16 @@ import { CartContext } from '../../CartContext/CartContext';
 export const Cart = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
 
+
   return (
     <div>
       <h2>Carrito de compras</h2>
-      {cart.length === 0 ? (
+      {cart.items.length === 0 ? (
         <p>Tu carrito está vacío.</p>
       ) : (
         <div>
           <ul>
-            {cart.map((item) => (
+            {cart.items.map((item) => (
               <li key={item.id}>
                 <img src={item.image} alt={item.name} />
                 <p>{item.name}</p>

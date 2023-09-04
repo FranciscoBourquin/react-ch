@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 
 //Necesario para exportar mi json
-import { getFirestore, collection, addDoc} from 'firebase/firestore'
+import { getFirestore, collection,doc, addDoc, getDoc, updateDoc, setDoc} from 'firebase/firestore'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,18 +28,36 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 
-//Iterar sobre los datos del mock para subirlo a firebase
-Object.values(Products).forEach((productArray) => {
-  productArray.forEach((product) => {
-    addDoc(collection(db, 'Products'), product)
-      .then((docRef) => {
-        console.log("Documento agregado con id ", docRef.id);
-      })
-      .catch((error) => {
-        console.error("Error al agregar el documento", error);
+//Se crea la constante PRODUCTS_ADDED_KEY para cambiar su valor luego de agregar los productos y evitar agregados repetitivos
+const PRODUCTS_ADDED_KEY = 'productsAdded';
+
+(async () => {
+  // Verifica si los productos ya han sido agregados previamente.
+  const metadataRef = doc(collection(db, 'Products'), 'metadata');
+  const metadataDoc = await getDoc(metadataRef);
+
+  if (!metadataDoc.exists() || !metadataDoc.data()[PRODUCTS_ADDED_KEY]) {
+    // Agrega los productos a la colección.
+    Object.values(Products).forEach((productArray) => {
+      productArray.forEach((product) => {
+        addDoc(collection(db, 'Products'), product)
+          .then((docRef) => {
+            console.log("Documento agregado con id ", docRef.id);
+          })
+          .catch((error) => {
+            console.error("Error al agregar el documento", error);
+          });
       });
-  });
-});
+    });
+
+    // Marca los productos como agregados en la base de datos.
+    if (metadataDoc.exists()) {
+      await updateDoc(metadataRef, { [PRODUCTS_ADDED_KEY]: true });
+    } else {
+      await setDoc(metadataRef, { [PRODUCTS_ADDED_KEY]: true });
+    }
+  }
+})();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -21,7 +21,7 @@ export const ItemDetailContainer = () => {
     default:
       product = null;
   }
-    console.log(product);
+
   if (!product) {
     // Si no se encuentra el producto, puedes mostrar un mensaje de producto no encontrado
     return <p>Producto no encontrado.</p>;
@@ -30,6 +30,7 @@ export const ItemDetailContainer = () => {
   return (
     <div>
       <ItemDetail
+        id = {product.id}
         name={product.name}
         image={product.image}
         description={product.description}
